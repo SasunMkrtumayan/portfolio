@@ -5,9 +5,16 @@ import { Moon, Sun, Mail, Phone, Linkedin, Github, ChevronDown } from "lucide-re
 import { Button } from "@/components/ui/button"
 import CVDownload from "./components/cv-download"
 
+interface VisibilityState {
+  about?: boolean;
+  skills?: boolean;
+  experience?: boolean;
+  contact?: boolean;
+}
+
 export default function CVWebsite() {
   const [darkMode, setDarkMode] = useState(false)
-  const [isVisible, setIsVisible] = useState({})
+  const [isVisible, setIsVisible] = useState<VisibilityState>({})
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
